@@ -148,16 +148,12 @@
             <!-- User Menu -->
             <li class="nav-item dropdown has-arrow">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                    <span class="user-img"><img class="rounded-circle"
-                                                src="{{url('images/admins/'.Auth()->user()->avatar)}}"
-                                                width="31" alt="{{Auth()->user()->name}}"></span>
+                    
+                                               {{Auth()->user()->name}}
                 </a>
                 <div class="dropdown-menu">
                     <div class="user-header">
-                        <div class="avatar avatar-sm">
-                            <img src="{{url('images/admins/'.Auth()->user()->avatar)}}" alt="User Image"
-                                 class="avatar-img rounded-circle">
-                        </div>
+                        
                         <div class="user-text">
                             <h6>{{Auth()->user()->name}}</h6>
                             <p class="text-muted mb-0">Administrator</p>

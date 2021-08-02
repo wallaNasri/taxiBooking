@@ -38,7 +38,7 @@
     <div id="top"></div>
 
     <!-- /.parallax full screen background image -->
-    <div class="fullscreen landing parallax blog-page" style="background-image:url('images/bg-baner.jpg');" data-img-width="2000" data-img-height="1333" data-diff="100">
+    <div class="fullscreen landing parallax blog-page" style="background-image:url('/images/bg-baner.jpg');" data-img-width="2000" data-img-height="1333" data-diff="100">
 
         <div class="overlay">
             <div class="container">
@@ -46,14 +46,12 @@
 
                     <!-- /.logo -->
                     <div class="logo wow fadeInDown" style="margin-top: 50px">
-                        <a href="index.html"><img src="{{asset('images/logo.png')}}" alt="logo"></a>
-                    </div>
+                    <p class="text-muted"><h3>o</h3></p>                    </div>
+                        <p class="text-muted"><h3>o</h3></p>                    </div>
 
                     <!-- /.main title -->
                     <h2 class="wow fadeInUp" style="margin-bottom: 50px">
-                        Sign In page
-                    </h2>
-
+                               </h2>
                 </div>
             </div>
         </div>
@@ -71,39 +69,21 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand site-name" href="#top"><img src="{{asset('images/logo2.png')}}" alt="logo"></a>
+                    <a class="navbar-brand site-name" href="#top"><img src="{{asset('images/logo.png')}}" alt="logo"></a>
                 </div>
 
                 <div id="navbar-scroll" class="collapse navbar-collapse navbar-backyard navbar-right">
                     <ul class="nav navbar-nav">
-                        <li><a href="private-driver.html">Private driver</a></li>
-                        <li><a href="taxi.html">Booking taxi</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li class="ymm-sw">
-                            <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200" href="#">Blog page<b class="caret"></b> </a>
-                            <ul class="dropdown-menu navbar-nav">
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="single.html">Single page</a></li>
-                                <li><a href="single-left-sidebar.html">Single left sidebar</a></li>
-                                <li><a href="single-right-sidebar.html">Single right sidebar</a></li>
-                            </ul>
-                        </li>
+                    <li><a href="{{route('font')}}">Home</a></li>
+                        <li><a href="{{route('taxi')}}">Booking taxi</a></li>
+                        <li><a href="{{route('services')}}">Services</a></li>
+                        <li><a href="{{route('about')}}">About</a></li>
 
-                        <li class="ymm-sw">
-                            <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200" href="#pages">Pages <b class="caret"></b> </a>
-                            <ul class="dropdown-menu navbar-nav">
-                                <li><a href="cars-list.html">Cars list page</a></li>
-                                <li><a href="booking-step-two.html">Booking page</a></li>
-                                <li><a href="features.html">Features page</a></li>
-                                <li><a href="faq.html">FAQ page</a></li>
-                                <li><a href="404.html">404 page</a></li>
-                                <li><a href="login.html">Login page</a></li>
-                                <li><a href="register.html">Register page</a></li>
-                                <li><a href="about.html">About page</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="my-account.html">My account</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                       
+
+                       
+                        <li><a href="{{route('my-account')}}">My account</a></li>
+                        <li><a href="{{route('contact')}}">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -116,70 +96,7 @@
 
     <!-- /.footer -->
     <footer id="footer">
-        <div class="footer-top">
-            <div class="container">
-                <div class="">
-                    <div class="col-md-4 col-sm-6">
-                        <h4>Where to find us</h4>
-                        <p><strong>kimaroTec.</strong>
-                            <br>13/25 New Avenue shibuia ayko
-                            <br>Kyoto city <br>45Y
-                            <strong>Japon</strong>
-                        </p>
-                        <a href="contact.html">Go to contact page</a>
-                        <hr class="hidden-md hidden-lg">
-                    </div>
-
-                    <div class="col-md-4 col-sm-6">
-                        <h4>Last news </h4>
-                        <ul class="footer-news">
-                            <li>
-                                <a href="single.html"><img src="{{asset('images/cirecl-car.png')}}" alt="">
-                                    <em>Mercidice class S 201</em>
-                                    <span class="f-readMore">More .. </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="single.html"><img src="{{asset('images/cirecl-car.png')}}" alt="">
-                                    <em>Mercidice class S 201</em>
-                                    <span class="f-readMore">More .. </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="single.html"><img src="{{asset('images/cirecl-car.png')}}" alt="">
-                                    <em>Mercidice class S 201</em>
-                                    <span class="f-readMore">More .. </span>
-                                </a>
-                            </li>
-
-                        </ul>
-                        <hr class="hidden-md hidden-lg">
-                    </div>
-                    <!-- /.col-md-4 -->
-
-                    <div class="col-md-4 col-sm-6">
-                        <h4>Get the news</h4>
-                        <div class="newsletter-box">
-                            <div class="newsletter">
-                                <div class="newsletter-content">
-                                    <p>Join our newsletter of Lorem Ipsum available, but the majority have suffered alteration .</p>
-                                </div>
-                                <div class="newsletter-form">
-                                    <form>
-                                        <input type="text" placeholder="Enter your email...." required="" />
-                                        <input type="submit" value=" ">
-                                    </form>
-                                </div>
-                                <div class="clear"> </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.col-md-4 -->
-
-                </div>
-                <!-- /.row -->
-            </div>
-        </div>
+        
         <hr>
         <div class="footer-bottum">
             <div id="copyright">

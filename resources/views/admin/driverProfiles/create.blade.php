@@ -1,11 +1,10 @@
-@extends('layouts.dashboard')
+@extends('font.layout')
+@section('content')
+<h3 class="col-md-4 col-sm-6">Complete your profile...</h3>
 
-
-@section('title','Add Profile of driver')
-@section('page-title','Add Profile of driver')
-
-
-@section('page-wrapper')
+<div id="myaccount">
+    
+    <div class="container">
 
 @if($errors->any())
 <div class="alert alert-danger">
@@ -13,7 +12,7 @@ Error
 </div>
 @endif
 
-<form action="{{route('drivers.store')}}" method="POST" enctype="multipart/form-data">
+<form class=" col-md-4 col-sm-6" action="{{route('drivers.store')}}" method="POST" enctype="multipart/form-data">
     @csrf
 
     <div class="form-group mb-3">
@@ -80,18 +79,7 @@ Error
               @enderror
     </div> 
 
-    <div class="form-group mb-3">
-        <label for="">Account Status:</label>
-        <div>
-            <label> <input type="radio" name="account_status" value=" active" @if(old('account_status')=='active') checked @endif> Active</label>
-            <label> <input type="radio" name="account_status" value="inactive"  @if(old('account_status')=='inactive') checked @endif> Inactive</label>
-            <label> <input type="radio" name="account_status" value="blocked"  @if(old('account_status')=='blocked') checked @endif> Blocked</label>
-
-        </div>
-        @error('account_status')
-        <p class="alert-warning">{{$message}}</p>
-                 @enderror
-    </div>
+   
 
     <div class="form-group mb-3">
         <label for="">Avatar:</label>
@@ -102,46 +90,10 @@ Error
     </div>
 
 
-    <div class="form-group mb-3">
-        <label for="">Veichle:</label>
-        <select name="veichle_id" id="veichle_id"  class="form-control @error('veichle_id') is-invalid @enderror">
-            <option value="">Select Veichle</option>
-            @foreach ($veichles as $veichle)
 
-            <option value="{{$veichle->id}}" @if($veichle->id == old('veichle_id')) selected @endif>{{$veichle->carmodel->brand->name}}/{{$veichle->carmodel->name}}</option>
-
-            @endforeach
-
-        </select>
-        @error('veichle_id')
-        <p class="invalid-feedback">{{$message}}</p>
-         @enderror
-    </div>
-
-    <div class="form-group mb-3">
-        <label for="">Action Status:</label>
-        <div>
-            <label> <input type="radio" name="action_status" value=" valid" @if(old('action_status')=='valid') checked @endif> Valid</label>
-            <label> <input type="radio" name="action_status" value="invalid"  @if(old('action_status')=='invalid') checked @endif> Invalid</label>
-
-        </div>
-        @error('action_status')
-        <p class="alert-warning">{{$message}}</p>
-                 @enderror
-    </div>
+    
 
 
-    <div class="form-group mb-3">
-        <label for="">Payment Type:</label>
-        <div>
-            <label> <input type="radio" name="payment_type" value=" wallet" @if(old('payment_type')=='wallet') checked @endif> Wallet</label>
-            <label> <input type="radio" name="payment_type" value="target"  @if(old('payment_type')=='target') checked @endif> Target</label>
-
-        </div>
-        @error('payment_type')
-        <p class="alert-warning">{{$message}}</p>
-                 @enderror
-    </div>
 
     <div class="form-group mb-3">
         <label for="">Driving License Number:</label>
@@ -164,15 +116,12 @@ Error
         <button type="submit" class="btn btn-primary">Add</button>
     </div>
 
-
 </form>
 
+</div>
+</div>
 
-@endsection
-@section('scripts')
-
-
-    <script src="{{asset('doccure/admin/assets/js/select2.min.js')}}"></script>
+<script src="{{asset('doccure/admin/assets/js/select2.min.js')}}"></script>
     <script>
 
 function getCityStates(){
@@ -192,5 +141,9 @@ function getCityStates(){
 }
 
 
-    </script> 
+    </script>
+@endsection
+@section('scripts')
+
+ 
     @endsection

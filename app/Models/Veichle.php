@@ -10,7 +10,7 @@ class Veichle extends Model
     use HasFactory;
 
     protected $fillable=['model_id','image','car_number','color','license_number',
-    'license_end_date','vin_number','status','owner_id_card','price'];
+    'license_end_date','vin_number','owner_id_card','price'];
     
     protected $cast=[
         'price'=>'float',
@@ -21,11 +21,13 @@ class Veichle extends Model
         return $this->belongsTo(Carmodel::class,'model_id','id')->withDefault();
     }
 
-    public function driver()
-    {
-        return $this->hasOne(DriverProfile::class,'veichle_id','id')->withDefault();
-    }
+    
+    
 
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 
     public function getImageUrlAttribute(){
         

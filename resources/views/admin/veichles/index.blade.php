@@ -31,7 +31,6 @@
             <th>License end date</th>
             <th>Vin number</th>
             <th>Owner ID card</th>
-            <th>Status</th>
             <th></th>
 
         </tr>
@@ -52,7 +51,6 @@
             <td>{{$veichle->license_end_date}}</td>      
             <td>{{$veichle->vin_number}}</td>
             <td>{{$veichle->owner_id_card}}</td>
-            <td>{{$veichle->status}}</td>
             <td>
                 <form action="{{route('veichles.destroy',$veichle->id)}}" method="post">
                     @csrf

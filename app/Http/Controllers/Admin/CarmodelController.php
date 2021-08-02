@@ -50,7 +50,7 @@ class CarmodelController extends Controller
                 }
 
             }],
-            'seats'=>'required|numeric|lte:10'
+            'seats'=>'required|numeric|lte:8'
         ]);
        $carmodel=Carmodel::create($request->all());
         return redirect()->route('carmodels.index')->with('success','Car Model added');

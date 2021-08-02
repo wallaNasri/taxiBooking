@@ -36,11 +36,9 @@ class DriversController extends Controller
     {
         $cities=City::all();
         $areas=Area::all();
-        $veichles=Veichle::all();
         return view('admin.driverProfiles.create',[
             'areas'=>$areas,
             'cities'=>$cities,
-            'veichles'=>$veichles,
         ]);
     }
 
@@ -55,16 +53,12 @@ class DriversController extends Controller
         $request->validate([
             'full_name'=>'required|min:10|unique:profiles,full_name',
             'id_number'=>'required|size:9|unique:driver_profiles,id_number',
-            'veichle_id'=>'required|exists:veichles,id',
             'driving_license_number'=>'required|size:7',
             'driving_license_expiry_date'=>'required|date',
             'mobile'=>'required|regex:/05[96][-]\d{7}/|unique:profiles,mobile',
             'area_id'=>'required|exists:areas,id',
             'adresss'=>'required',
             'avatar'=>'image',
-            'account_status'=>'required',
-            'action_status'=>'required',
-            'payment_type'=>'required',
         ]);
 
         request()->merge([
@@ -112,14 +106,12 @@ class DriversController extends Controller
     {
         $cities=City::all();
         $areas=Area::all();  
-        $veichles=Veichle::all();
 
         $profile=DriverProfile::where('user_id',$id)->first();
         return view('admin.driverProfiles.edit',[
             'profile'=>$profile,
             'areas'=>$areas,
             'cities'=>$cities,
-            'veichles'=>$veichles,
 
         ]); 
     }
@@ -146,16 +138,13 @@ class DriversController extends Controller
            
                 'full_name'=>'required|min:10',
                 'id_number'=>'required|size:9',
-                'veichle_id'=>'required|exists:veichles,id',
                 'driving_license_number'=>'required|size:7',
                 'driving_license_expiry_date'=>'required|date',
                 'mobile'=>'required|regex:/05[96][-]\d{7}/',
                 'area_id'=>'required|exists:areas,id',
                 'adresss'=>'required',
                 'avatar'=>'image',
-                'account_status'=>'required',
-                'action_status'=>'required',
-                'payment_type'=>'required',
+                
         ]);
 
        
@@ -176,13 +165,9 @@ class DriversController extends Controller
        $profile->adresss=$request->adresss;
 
        $profile->id_number=$request->id_number;
-       $profile->veichle_id=$request->veichle_id;
-       $profile->action_status=$request->action_status;
-       $profile->payment_type=$request->payment_type;
        $profile->driving_license_number=$request->driving_license_number;
        $profile->driving_license_expiry_date=$request->driving_license_expiry_date;
 
-       $profile->account_status=$request->account_status;
        $profile->avatar=$avatar;
        $profile->save();
 

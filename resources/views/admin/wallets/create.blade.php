@@ -16,6 +16,8 @@ Error
 <form action="{{route('wallets.store')}}" method="POST" enctype="multipart/form-data">
     @csrf
 
+    
+
     <div class="form-group mb-3">
         <label for="">User Name:</label>
         <input type="text" name="name" value="{{ old('name')}}" class="form-control @error('name') is-invalid @enderror">

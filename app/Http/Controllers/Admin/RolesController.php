@@ -33,8 +33,6 @@ class RolesController extends Controller
     public function create(Request $request)
     {
       
-
-  
         return view('admin.roles.create',[
         ]);
     }
@@ -67,7 +65,7 @@ class RolesController extends Controller
     $users=User::when($request->user_type,function($query,$value){
         $query->where('users.type',$value);
     })->get();
-    dd($users);
+    
     foreach($users as $user){
         $user->roles()->attach($id);
 

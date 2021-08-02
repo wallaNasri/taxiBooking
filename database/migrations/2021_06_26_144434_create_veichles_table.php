@@ -15,14 +15,13 @@ class CreateVeichlesTable extends Migration
     {
         Schema::create('veichles', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('model_id')->constrained('carmodels','id')->nullOnDelete();
+            $table->foreignId('model_id')->constrained('carmodels','id')->cascadeOnDelete();
             $table->string('image');
             $table->string('car_number');
             $table->string('color');
             $table->string('license_number');
             $table->date('license_end_date');
             $table->string('vin_number')->unique();
-            $table->enum('status',['available','damage','out']);
             $table->string('owner_id_card');           
             $table->timestamps();
         });

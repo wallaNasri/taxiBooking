@@ -36,7 +36,7 @@ class ProfileController extends Controller
      */
     public function create()
     {
-        $this->authorize('create',Profile::class);
+      //  $this->authorize('create',Profile::class);
         $cities=City::all();
         $areas=Area::all();
         return view('admin.profiles.create',[
@@ -54,7 +54,7 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        $this->authorize('create',Profile::class);
+       // $this->authorize('create',Profile::class);
         $request->validate([
             'full_name'=>'required|min:10|unique:profiles,full_name',
             'mobile'=>'required|regex:/05[96][-]\d{7}/|unique:profiles,mobile',
@@ -74,22 +74,20 @@ class ProfileController extends Controller
            $file=$request->file('avatar');
            $data['avatar']=$file->store('/image','uploads');
        }
-
-        
+   
         $user=Auth::user();
         $profile=Profile::create($data);
         $profile->user()->associate($user);
         $profile->user()->update([
               'type'=>'user',
         ]);
-        $profile->user->roles()->attach(2);
         $profile->save();
 
        
       
         
 
-        return redirect()->route('profiles.index')->with('success','Profile added');
+        return redirect()->route('font')->with('success','Profile added');
 
     }
 
@@ -180,7 +178,7 @@ class ProfileController extends Controller
         }
        
 
-        return redirect()->route('profiles.index')->with('success','Profile updated');
+        return redirect()->back()->with('success','Profile updated');
 
     }
 

@@ -7,6 +7,7 @@
 
 @section('page-wrapper')
 
+
 @if($errors->any())
 <div class="alert alert-danger">
 Error
@@ -102,6 +103,7 @@ Error
               @enderror
     </div> 
 
+
     <div class="form-group mb-3">
         <label>Owner ID card:</label>
         <input name="owner_id_card" value="{{ old('owner_id_card') }}" type="text" class="form-control @error('owner_id_card') is-invalid @enderror">
@@ -110,18 +112,7 @@ Error
               @enderror
     </div> 
 
-    <div class="form-group mb-3">
-        <label for="">Status:</label>
-        <div>
-            <label> <input type="radio" name="status" value=" available" @if(old('status')=='available') checked @endif> Available</label>
-            <label> <input type="radio" name="status" value="damage"  @if(old('status')=='damage') checked @endif> Damage</label>
-            <label> <input type="radio" name="status" value="out"  @if(old('status')=='out') checked @endif> Out</label>
-
-        </div>
-        @error('status')
-        <p class="alert-warning">{{$message}}</p>
-                 @enderror
-    </div>
+  
 
    
 

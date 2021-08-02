@@ -2,8 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use Stevebauman\Location\Facades\Location;
-use alexpechkarev\GoogleMaps\ServiceProvider\GoogleMapsServiceProvider;
-use alexpechkarev\GoogleMaps\Facade\GoogleMapsFacade;
 use GoogleMaps\GoogleMaps;
 
 /*
@@ -22,8 +20,18 @@ Route::get('/', function () {
 });
 
 
-Route::get('font','Font\HomeController@index');
-Route::get('font/show/{id}','Font\VeichleController@show')->name('veichle.show');
+Route::get('font','Font\HomeController@index')->name('font');
+Route::get('font/show','Font\VeichleController@show')->name('veichle.show');
+
+Route::get('font/cart/{id}','Font\CartController@store')->name('cart');
+Route::get('font/info','Font\CartController@index')->name('info');
+
+Route::post('font/info','Font\OrderController@store')->name('info.store');
+Route::get('font/my','Font\MaccountController@index')->name('my-account');
+
+Route::view('/ch','font.choose')->name('choose');
+
+
 
 
 
@@ -53,32 +61,16 @@ Route::get('details', function () {
 
 });
 
-Route::get('google', function(){
-    $config = array();
-    $config['center'] = 'auto';
-    $config['onboundschanged'] = 'if (!centreGot) {
-            var mapCentre = map.getCenter();
-            marker_0.setOptions({
-                position: new google.maps.LatLng(mapCentre.lat(), mapCentre.lng())
-            });
-        }
-        centreGot = true;';
 
-    app('map')->initialize($config);
+Route::get('dir','AutoAddressController@googleAutoAddress')->name('dir');
+Route::post('direction','Font\DirectionController@store')->name('direction');
 
-    // set up the marker ready for positioning
-    // once we know the users location
-    $marker = array();
-    app('map')->add_marker($marker);
+Route::get('font/payment','Font\paymentController@store')->name('payment');
 
-    $map = app('map')->create_map();
-    echo "<html><head><script >var centreGot = false;</script>".$map['js']."</head><body>".$map['html']."</body></html>";
-});
-
-
-Route::get('dir','AutoAddressController@googleAutoAddress');
-
-
+Route::view('font/contact','font.contact')->name('contact');
+Route::view('font/taxi','font.taxi')->name('taxi');
+Route::view('font/services','font.services')->name('services');
+Route::view('font/about','font.about')->name('about');
 
 
 

@@ -17,13 +17,9 @@ class CreateDriverProfilesTable extends Migration
             $table->foreignId('user_id')->primary()->constrained('users','id')->cascadeOnDelete();
             $table->string('id_number')->unique();
             $table->string('full_name')->unique();
-            $table->foreignId('veichle_id')->constrained('veichles','id')->nullOnDelete();
-            $table->enum('activity_status',['online','offline']);
             $table->string('mobile')->unique();
-            $table->foreignId('area_id')->constrained('areas','id')->nullOnDelete();
+            $table->foreignId('area_id')->nullable()->constrained('areas','id')->nullOnDelete();
             $table->string('adresss');
-            $table->enum('account_status',['active','inactive','blocked']);
-            $table->enum('payment_type',['wallet','target']);
             $table->string('driving_license_number');
             $table->date('driving_license_expiry_date');
             $table->string('avatar')->nullable();

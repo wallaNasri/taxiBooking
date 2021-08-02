@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -58,7 +57,6 @@ class VeichlesController extends Controller
             'license_end_date'=>'required|date',
             'vin_number'=>'required|size:17|unique:veichles,vin_number',
             'owner_id_card'=>'required',
-            'status'=>'required',    
         ]);
            
         $data=request()->all();
@@ -124,7 +122,6 @@ class VeichlesController extends Controller
             'license_end_date'=>'required|date',
             'vin_number'=>"required|unique:veichles,vin_number,$id",
             'owner_id_card'=>'required',
-            'status'=>'required',    
         ]);
 
         $previous=false;

@@ -1,18 +1,17 @@
-@extends('layouts.dashboard')
+@extends('font.layout')
+@section('content')
+<h3 class="col-md-4 col-sm-6">Settings...</h3>
 
+<div id="myaccount">
+    
+    <div class="container">
+    <x-alert/>
 
-@section('title','Update Profile')
-@section('page-title','Update Profile')
-
-
-@section('page-wrapper')
-
-
-<form action="{{route('profiles.update', $profile->user_id) }}" method="POST" enctype="multipart/form-data">
+<form class=" " action="{{route('profiles.update', $profile->user_id) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('put')
 
-    <div class="form-group mb-3">
+    <div class="form-group  col-sm-6 mb-3">
         <label for="">Full Name:</label>
         <input type="text" name="full_name" value="{{$profile->full_name}}" class="form-control @error('full_name') is-invalid @enderror">
         @error('full_name')
@@ -20,7 +19,7 @@
          @enderror
     </div>
 
-    <div class="form-group mb-3">
+    <div class="form-group  col-sm-6 mb-3">
         <label>Mobile:</label>
         <input name="mobile" value="{{ $profile->mobile }}" type="text" class="form-control @error('mobile') is-invalid @enderror">
         @error('mobile')
@@ -30,7 +29,7 @@
                         
 
 
-    <div class="form-group mb-3">
+    <div class="form-group  col-sm-6 mb-3">
         <label for="">City:</label>
         <select name="city_id" id="city_id" onchange="getCityStates()" class="form-control ">
             <option value="">{{$profile->area->city->name}}</option>
@@ -45,7 +44,7 @@
     </div>
 
    
-    <div class="form-group mb-3">
+    <div class="form-group col-sm-6 mb-3">
         <label for="">Area:</label>
         <select name="area_id" id="area_id" class="form-control @error('area_id') is-invalid @enderror">
             <option value="{{$profile->area_id}}">{{$profile->area->name}}</option>
@@ -57,7 +56,7 @@
     </div>
 
         
-    <div class="form-group mb-3">
+    <div class="form-group  mb-3">
         <label>Address:</label>
         <input name="adresss" value="{{ $profile->adresss }}" type="text" class="form-control @error('adresss') is-invalid @enderror">
         @error('adresss')
@@ -96,13 +95,9 @@
 
 
 </form>
-
-
-@endsection
-@section('scripts')
-
-
-    <script src="{{asset('doccure/admin/assets/js/select2.min.js')}}"></script>
+</div>
+</div>
+<script src="{{asset('doccure/admin/assets/js/select2.min.js')}}"></script>
     <script>
 
 function getCityStates(){
@@ -123,4 +118,11 @@ function getCityStates(){
 
 
     </script> 
+
+
+@endsection
+@section('scripts')
+
+
+   
     @endsection

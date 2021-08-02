@@ -8,9 +8,12 @@
 @section('page-wrapper')
 
 
+
 <form action="{{route('veichles.update', $veichle->id) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('put')
+  
+
 
     <div class="form-group mb-3">
         <label for="">Image:</label>
@@ -110,18 +113,7 @@
               @enderror
     </div> 
 
-    <div class="form-group mb-3">
-        <label for="">Status:</label>
-        <div>
-            <label> <input type="radio" name="status" value=" available" @if($veichle->status=='available') checked @endif> Available</label>
-            <label> <input type="radio" name="status" value="damage"  @if($veichle->status=='damage') checked @endif> Damage</label>
-            <label> <input type="radio" name="status" value="out"  @if($veichle->status=='out') checked @endif> Out</label>
-
-        </div>
-        @error('status')
-        <p class="alert-warning">{{$message}}</p>
-                 @enderror
-    </div>
+  
     <div>
         <button type="submit" class="btn btn-primary">Update</button>
     </div>

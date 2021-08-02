@@ -1,19 +1,18 @@
-@extends('layouts.dashboard')
+@extends('font.layout')
+@section('content')
 
+<h3 class="col-md-4 col-sm-6">Complete your profile...</h3>
 
-@section('title','Add Profile')
-@section('page-title','Add Profile')
-
-
-@section('page-wrapper')
-
+<div id="myaccount">
+    
+    <div class="container">
 @if($errors->any())
 <div class="alert alert-danger">
 Error
 </div>
 @endif
 
-<form action="{{route('profiles.store')}}" method="POST" enctype="multipart/form-data">
+<form  class=" col-md-4 col-sm-6" action="{{route('profiles.store')}}" method="POST" enctype="multipart/form-data">
     @csrf
 
     <div class="form-group mb-3">
@@ -99,13 +98,11 @@ Error
 
 
 </form>
+</div>
+</div>
 
 
-@endsection
-@section('scripts')
-
-
-    <script src="{{asset('doccure/admin/assets/js/select2.min.js')}}"></script>
+<script src="{{asset('doccure/admin/assets/js/select2.min.js')}}"></script>
     <script>
 
 function getCityStates(){
@@ -126,4 +123,8 @@ function getCityStates(){
 
 
     </script> 
+
+@endsection
+@section('scripts')
+
     @endsection

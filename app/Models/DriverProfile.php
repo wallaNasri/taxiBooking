@@ -9,8 +9,8 @@ class DriverProfile extends Model
 {
     use HasFactory;
 
-    protected $fillable=['user_id','full_name','mobile','adresss','area_id','account_status','avatar','id_number',
-    'action_status','payment_type','driving_license_number','driving_license_expiry_date','veichle_id'];
+    protected $fillable=['user_id','full_name','mobile','adresss','area_id','avatar','id_number',
+    'driving_license_number','driving_license_expiry_date'];
 
 
     protected $primaryKey='user_id';
@@ -25,10 +25,7 @@ class DriverProfile extends Model
         return $this->belongsTo(Area::class,'area_id','id')->withDefault();
     }
 
-    public function veichle()
-    {
-        return $this->belongsTo(Veichle::class,'veichle_id','id')->withDefault();
-    }
+    
 
 
 
